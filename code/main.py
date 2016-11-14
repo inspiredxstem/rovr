@@ -73,6 +73,10 @@ class GetAllData(webapp2.RequestHandler):
         }
         return self.response.out.write(json.encode(data))
 
+class woof(webapp2.RequestHandler):
+    def get(self):
+        return self.response.out.write("woof")
+
 
 app = webapp2.WSGIApplication([
     ('/create/walker', CreateWalker),
@@ -80,4 +84,5 @@ app = webapp2.WSGIApplication([
     ('/create/request', CreateRequest),
     ('/delete/request', DeleteRequest),
     ('/get', GetAllData),
+    ('/bark', woof),
 ])
